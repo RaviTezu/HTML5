@@ -85,3 +85,48 @@ Lots of elements do not need a closing tag anymore: </li>, </dt>, </dd>, </tr>, 
 Attribute values only need to be quoted if they contain spaces or some non-alphanumeric characters, instead of writing <link rel="stylesheet" href="style.css">, we could have used <link rel=stylesheet href=style.css> instead. However, for compatibility with older browsers, it might be wiser to still use quotes...
 
 What is the minimal code to define DOCTYPE in HTML5? <!DOCTYPE html>
+
+New structural elements: See: pictureOfStructuringElements.jpg
+
+HISTORY
+
+As Web site layouts evolve, HTML5 structural elements like lists, paragraphs, tables, etc. show their limits. Today, many Web sites offer navigation menus, tabbed panels, headers, footers, and so on. The way these "parts"' are implemented relies heavily on <div> and <span> elements with different id and class attributes, lots of CSS and lots of JavaScript code to apply custom styles and behaviors.
+
+However, with this approach, there are some issues:
+
+id and class names differ from one developer to another, from one country to another, etc.
+Even with the same ids and class names, the css rules may be different
+JavaScript libraries became heavier and heavier over the years
+Web pages became heavier and heavier over the years!
+These elements could not be handled by the Web browser natively...
+Even if there are differences between ids, classes and css/js implementations, there are also common behaviors, common layouts, common "way of doing things" that could be guessed at first glance by a human.
+
+So different studies have been conducted in order to identify the most popular ids, class names, widgets, etc. used on the Web:
+
+According to http://dev.opera.com/articles/view/new-structural-elements-in-html5/, "During the creation of HTML5, Ian Hickson used Google's tools to mine data from over a billion Web pages, surveying what ids and class names are most commonly used on the real world Web. You can see one of the surveys published at Google Code: Web Authoring Statistics: Classes. Opera did a similar study of 3.5 million URLs, calling it MAMA ("Metadata Analysis and Mining Application"). MAMA, as structural Web-paged search engine, had a smaller URL set, but looked at a larger and wider variety of Web page statistics. The articles published by Opera are no longer online but have been archived on github, and still can be accessed using web.archive.org, see MAMA common attributes, MAMA's id list, and MAMA's class list. For more options, go to the MAMA home page." - https://developers.google.com/webmasters/state-of-the-web/2005/classes?csw=1
+
+NEW ELEMENTS ADDED TO THE HTML5 SET
+
+The results of these surveys led to the addition of new structural elements in HTML5. For example, the very popular <div class="header"> led to the creation of a <header> element, <div class="aside"> to a <aside> element, etc.
+
+Finally, the 20 most popular ids and class names found in Hickson's and Opera's surveys gave birth to these new elements (click on the element's name to go to the W3C specification about this element):
+
+HTML5 structural elements with descriptions.
+HTML5 element	Description
+<header>	Introduction of "sectioning elements": an article, a section, the entire document (header page). Typically the header of a Web site that appears on top of each page, or a header of a long <article> or of a long <section>
+<footer>	Contains the footer of a site, a long <article>, or a long <section>
+<nav>	Section that contains the main navigation links (within the document or to other pages).
+<article>	
+Independent content, which can be individually extracted from the document and syndicated (RSS or equivalent) without penalizing its understanding. Typically a blog post.
+
+<section>	
+Generic section used to group different articles for different purposes or subjects, or to define the different sections of a single article. Generally used with a header.
+
+<time>	Used for marking up times and dates.
+<aside>	Section whose content is not necessarily directly related to the main content that surrounds it, but can provide additional information.
+<figure> and <figcaption>	Used to encapsulate a figure as a single item, and contains a caption for the figure, respectively.
+<main>	The main element represents the main content of the body of a document or application. The main content area consists of content that is directly related to or expands upon the central topic of a document or central functionality of an application. There can be only one <main> element in a document.And there is no <content> element even though the <div class="content"> was very popular. Instead, the HTML5 group decided that anything not embedded in one of the elements from the above table is "default content". If the content is of a type that corresponds to one of the elements from the table, i.e. if the content is an article, it should be embedded between <article> and </article>.
+
+See: Mixing_all_new_elements_together.pdf
+
+
